@@ -14,7 +14,9 @@ class Console extends h2d.Console {
 		// Settings
 		ME = this;
 		h2d.Console.HIDE_LOG_TIMEOUT = 30;
+		#if !nodejs
 		Lib.redirectTracesToH2dConsole(this);
+		#end
 
 		// Debug flags
 		#if debug

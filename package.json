@@ -1,0 +1,23 @@
+{
+  "name": "game-client",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@gitlab.com:qkdreyer/game-client.git",
+  "author": "qkdreyer <quentin.dreyer@rgsystem.com>",
+  "license": "MIT",
+  "scripts": {
+    "serve": "yarn debug:server && yarn run:server",
+    "start": "yarn debug:client && yarn run:client",
+    "resync": "yarn release:server && yarn push:server && yarn restart:server && yarn log:server",
+    "game": "yarn release:client && yarn run:client",
+    "debug:client": "haxe hl.debug.hxml",
+    "release:client": "haxe hl.sdl.hxml -D prod",
+    "run:client": "hl bin/client.hl",
+    "debug:server": "haxe js.debug.hxml",
+    "release:server": "haxe js.hxml -D prod",
+    "run:server": "node bin/client.js",
+    "push:server": "scp bin/client.js root@tcv.qkdreyer.dev:",
+    "restart:server": "ssh root@tcv.qkdreyer.dev 'pkill node; node client.js > game.log 2>&1 &'",
+    "log:server": "ssh root@tcv.qkdreyer.dev tail -f game.log"
+  }
+}

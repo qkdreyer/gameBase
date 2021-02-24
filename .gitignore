@@ -1,4 +1,3 @@
-.tmp
-redist
+node_modules
 bin
-.vscode/settings.json
+.tmp

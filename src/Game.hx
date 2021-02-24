@@ -22,6 +22,9 @@ class Game extends Process {
 	/** UI **/
 	public var hud : ui.Hud;
 
+	/** Entity **/
+	public var hero : en.Hero;
+
 	/** Slow mo internal values**/
 	var curGameSpeed = 1.0;
 	var slowMos : Map<String, { id:String, t:Float, f:Float }> = new Map();
@@ -46,6 +49,8 @@ class Game extends Process {
 		hud = new ui.Hud();
 		level = new Level(world.all_levels.FirstLevel);
 		camera = new Camera();
+
+		new ext.Network();
 
 		Process.resizeAll();
 		trace(Lang.t._("Game is ready."));
@@ -128,7 +133,7 @@ class Game extends Process {
 		ucd.setS("stopFrame", 0.2);
 	}
 
-	
+
 	/** Loop that happens at the beginning of the frame **/
 	override function preUpdate() {
 		super.preUpdate();

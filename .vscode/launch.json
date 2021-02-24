@@ -5,6 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Node debug",
+            "request": "launch",
+            "type": "node",
+            "cwd": "${workspaceRoot}",
+            "runtimeExecutable": "yarn",
+            "runtimeArgs": ["serve"]
+        },
+        {
             "name": "HL debug",
             "request": "launch",
             "type": "hl",

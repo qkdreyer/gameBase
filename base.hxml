@@ -3,5 +3,6 @@
 -lib heaps
 -lib deepnightLibs
 -lib ldtk-haxe-api
+-lib hxbit
 -main Boot
 -dce full
